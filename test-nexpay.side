@@ -1,0 +1,174 @@
+{
+  "id": "0cee1d47-2999-420f-8cca-cc139f6d68a3",
+  "version": "2.0",
+  "name": "test-nexpay",
+  "url": "https://www.nexpay.com.au",
+  "tests": [{
+    "id": "7cfb66bc-6aa5-466f-99c0-07b94a9a475b",
+    "name": "test-1",
+    "commands": [{
+      "id": "95c0c5aa-9059-4431-a7d8-fbd136849734",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8d4bd719-251c-475b-bcae-3034036f52a9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1080x1920",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c8bb8f2f-6da6-4ffe-b68c-6746b0f58ba1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Our Rates",
+      "targets": [
+        ["linkText=Our Rates", "linkText"],
+        ["css=.nav-link-our-rates", "css:finder"],
+        ["xpath=//a[contains(text(),'Our Rates')]", "xpath:link"],
+        ["xpath=//div[@id='navbarCollapse']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#our-rates')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Our Rates')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "919376a3-34a0-4552-adf2-fab2a3a94798",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "7862a1cc-20b7-4daa-82b8-bda3c979d0ef",
+      "comment": "",
+      "command": "click",
+      "target": "id=currency-selector-to",
+      "targets": [
+        ["id=currency-selector-to", "id"],
+        ["css=#currency-selector-to", "css:finder"],
+        ["xpath=//button[@id='currency-selector-to']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'AUD ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7082b093-4d12-4f72-a906-a595464d7d03",
+      "comment": "",
+      "command": "type",
+      "target": "name=searchCurrency",
+      "targets": [
+        ["name=searchCurrency", "name"],
+        ["css=.ng-dirty > .form-control", "css:finder"],
+        ["xpath=//input[@name='searchCurrency']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "eur"
+    }, {
+      "id": "7f32eef5-65ac-4d20-b9d4-3098e516fcf8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=EUR - Euro",
+      "targets": [
+        ["linkText=EUR - Euro", "linkText"],
+        ["css=.show > .ng-star-inserted", "css:finder"],
+        ["xpath=//a[contains(text(),'EUR - Euro')]", "xpath:link"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'  EUR - Euro')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "57b574db-7ce5-49a8-af5b-658a44fa12a7",
+      "comment": "",
+      "command": "click",
+      "target": "id=currency-selector",
+      "targets": [
+        ["id=currency-selector", "id"],
+        ["css=#currency-selector", "css:finder"],
+        ["xpath=//button[@id='currency-selector']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'BRL ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "70cbf663-7efd-4077-ba70-e1dd653a9633",
+      "comment": "",
+      "command": "type",
+      "target": "css=.ng-untouched > .form-control",
+      "targets": [
+        ["css=.ng-untouched > .form-control", "css:finder"],
+        ["xpath=(//input[@name='searchCurrency'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/div/form/input", "xpath:position"]
+      ],
+      "value": "mxn"
+    }, {
+      "id": "244cad34-9f4c-45c0-95c0-6727f10be012",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MXN - Mexican Peso",
+      "targets": [
+        ["linkText=MXN - Mexican Peso", "linkText"],
+        ["css=.show > .ng-star-inserted", "css:finder"],
+        ["xpath=//a[contains(text(),'MXN - Mexican Peso')]", "xpath:link"],
+        ["xpath=//div[2]/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'  MXN - Mexican Peso')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d504e0af-dfd3-4b67-9284-330fe741245d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.from-currency > p:nth-child(4)",
+      "targets": [
+        ["css=.from-currency > p:nth-child(4)", "css:finder"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'1 EUR = 23.92496056 MXN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "95c94819-66d7-4744-88af-6955c82ff147",
+      "comment": "",
+      "command": "click",
+      "target": "css=.from-currency > p:nth-child(4)",
+      "targets": [
+        ["css=.from-currency > p:nth-child(4)", "css:finder"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'1 EUR = 23.92496056 MXN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d03b80ab-6f4b-49f7-b9d7-4788ac96ec15",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.from-currency > p:nth-child(4)",
+      "targets": [
+        ["css=.from-currency > p:nth-child(4)", "css:finder"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'1 EUR = 23.92496056 MXN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e92ca85f-673e-40e4-bc69-407851a8a82d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "fa475b64-1c39-49c7-844f-b654ebb8712d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7cfb66bc-6aa5-466f-99c0-07b94a9a475b"]
+  }],
+  "urls": ["https://www.nexpay.com.au/"],
+  "plugins": []
+}
