@@ -1,6 +1,9 @@
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 
+import java.net.URI;
+import java.util.Arrays;
+
 public class SendWhats {
     private final String bodyMessage;
 
@@ -13,8 +16,9 @@ public class SendWhats {
         final Message message = Message.creator(
                         new com.twilio.type.PhoneNumber("whatsapp:" + Constants.STEPH_NUMBER),
                         new com.twilio.type.PhoneNumber("whatsapp:" + Constants.WHATS_NUMBER),
-                        "Hola Stephanie, bonito dia." + bodyMessage
-                )
+                        "Hola Stephanie, bonito dia." + bodyMessage)
+                .setMediaUrl(
+                        Arrays.asList(URI.create(Constants.IMAGE_BULL)))
                 .create();
         System.out.println(message.getBody());
     }
@@ -24,12 +28,14 @@ public class SendWhats {
                         new com.twilio.type.PhoneNumber("whatsapp:" + Constants.ME_NUMBER),
                         new com.twilio.type.PhoneNumber("whatsapp:" + Constants.WHATS_NUMBER),
                         "Hey Dyno." + bodyMessage)
+                .setMediaUrl(
+                        Arrays.asList(URI.create(Constants.IMAGE_BULL)))
                 .create();
         System.out.println(message.getBody());
     }
 
     public void sentAllWhats() {
         sendWhatsToMe();
-        sendWhatsToStep();
+//        sendWhatsToStep();
     }
 }

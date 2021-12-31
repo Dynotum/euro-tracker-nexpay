@@ -12,15 +12,17 @@ repositories {
 dependencies {
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver
     implementation 'org.seleniumhq.selenium:selenium-firefox-driver:4.1.1'
-// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     implementation 'org.seleniumhq.selenium:selenium-java:4.1.1'
     testImplementation('junit:junit:4.13')
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     testImplementation 'org.slf4j:slf4j-simple:1.7.32'
-// https://mvnrepository.com/artifact/com.twilio.sdk/twilio
+    // https://mvnrepository.com/artifact/com.twilio.sdk/twilio
     implementation 'com.twilio.sdk:twilio:8.23.0'
-// https://mvnrepository.com/artifact/org.apache.spark/spark-core
-    implementation 'org.apache.spark:spark-core_2.13:3.2.0'
+    // https://mvnrepository.com/artifact/com.sparkjava/spark-core
+    implementation 'com.sparkjava:spark-core:2.9.3'
+
+
 }
 
 test {

@@ -31,10 +31,7 @@ public class TrackTask extends TimerTask {
         double mxnCurrencyValue = mexicanCurrency.getCurrencyMXN();
 
         if (mxnCurrencyValue < 24.0) {
-            final SendSMS sendSMS = new SendSMS(mxnCurrencyValue);
             final SendWhats sendWhats = new SendWhats(mxnCurrencyValue);
-
-            sendSMS.sentAllSMS();
             sendWhats.sentAllWhats();
         }
     }
