@@ -2,43 +2,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.TimerTask;
+public class SeleniumTask {
+    private String text;
+    private static final Logger LOGGER = LoggerFactory.getLogger(SeleniumTask.class);
 
-public class TrackTask extends TimerTask {
-
-    private String textFromWeb;
-
-    public String getTextFromWeb() {
-        return textFromWeb;
+    public SeleniumTask() {
+        executeWebTask();
     }
 
-    public void setTextFromWeb(String textFromWeb) {
-        this.textFromWeb = textFromWeb;
+    public String getText() {
+        return text;
     }
 
-    @Override
-    public void run() {
-        try {
-            executeTask();
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        final MexicanCurrency mexicanCurrency = new MexicanCurrency(getTextFromWeb());
-
-        double mxnCurrencyValue = mexicanCurrency.getCurrencyMXN();
-
-        if (mxnCurrencyValue < 24.0) {
-            final SendWhats sendWhats = new SendWhats(mxnCurrencyValue);
-            sendWhats.sentAllWhats();
-        }
+    private void setText(String text) {
+        this.text = text;
     }
 
-    private String executeTask() {
-        String value = "";
-        WebDriver driver = new FirefoxDriver();
+    private void executeWebTask() {
+        final WebDriver driver = new FirefoxDriver();
         try {
             // Step # | name | target | value
             // 1 | open | / |
@@ -65,16 +49,15 @@ public class TrackTask extends TimerTask {
             driver.findElement(By.linkText("MXN - Mexican Peso")).click();
             Thread.sleep(2000);
             // 11 | click | css=.from-currency > p:nth-child(4) |
-            value = driver.findElement(By.cssSelector(".from-currency > p:nth-child(4)")).getText();
+            final String textValue = driver.findElement(By.cssSelector(".from-currency > p:nth-child(4)")).getText();
             // 12 | click | css=.from-currency > p:nth-child(4) |
-            System.out.println("value = " + value);
-            setTextFromWeb(value);
+            LOGGER.info("SeleniunTask - Text from web: " + textValue);
+            setText(textValue);
             Thread.sleep(1000);
         } catch (Exception w) {
             System.out.println(w.getMessage());
         } finally {
             driver.close();
         }
-        return value;
     }
 }
