@@ -1,11 +1,14 @@
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.util.List;
 
 public class SendWhats {
     private final String bodyMessage;
+    private static final Logger LOGGER = LoggerFactory.getLogger(SendWhats.class);
 
     public SendWhats(double mxnCurrency) {
         Twilio.init(Constants.ACCOUNT_SID, Constants.AUTH_TOKEN);
@@ -20,7 +23,7 @@ public class SendWhats {
                 .setMediaUrl(
                         List.of(URI.create(Constants.IMAGE_BULL)))
                 .create();
-        System.out.println(message.getBody());
+        LOGGER.info("STEPH message:\n" + message.getBody());
     }
 
     private void sendWhatsToMe() {
@@ -31,7 +34,7 @@ public class SendWhats {
                 .setMediaUrl(
                         List.of(URI.create(Constants.IMAGE_BULL)))
                 .create();
-        System.out.println(message.getBody());
+        LOGGER.info("DYNO message:\n" + message.getBody());
     }
 
     public void sentAllWhats() {
