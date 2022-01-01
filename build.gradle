@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'org.nexpay'
@@ -13,18 +14,48 @@ dependencies {
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver
     implementation 'org.seleniumhq.selenium:selenium-firefox-driver:4.1.1'
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-    implementation 'org.seleniumhq.selenium:selenium-java:4.1.1'
-    testImplementation('junit:junit:4.13')
-    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
-    testImplementation 'org.slf4j:slf4j-simple:1.7.32'
+    apiElements 'org.seleniumhq.selenium:selenium-java:4.1.1'
+    testImplementation('junit:junit:4.13.2')
+
     // https://mvnrepository.com/artifact/com.twilio.sdk/twilio
     implementation 'com.twilio.sdk:twilio:8.23.0'
     // https://mvnrepository.com/artifact/com.sparkjava/spark-core
     implementation 'com.sparkjava:spark-core:2.9.3'
 
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    implementation 'org.slf4j:slf4j-simple:1.7.32'
 
 }
 
 test {
     useJUnitPlatform()
 }
+
+jar {
+        manifest {
+        attributes(
+                'Main-Class': "Main"
+        )
+    }
+    from {
+        configurations
+                .runtimeClasspath
+                .collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+}
+
+//jar {
+//    manifest {
+//        attributes('Main-Class' : "Main")
+//    }
+//    from {
+//        configurations["compileClasspath"].forEach {
+//            file:
+//            File ->
+//                    from(zipTree(file.absoluteFile))
+//        }
+//    }
+//    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+//}
