@@ -21,7 +21,7 @@ public class SeleniumTask {
         this.text = text;
     }
 
-    private void executeWebTask() {
+    private synchronized void executeWebTask() {
         final WebDriver driver = new FirefoxDriver();
         try {
             // Step # | name | target | value
