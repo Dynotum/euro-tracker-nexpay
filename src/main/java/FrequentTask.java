@@ -1,3 +1,4 @@
+import org.apache.commons.lang3.ThreadUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -6,16 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.TimerTask;
 
 public class FrequentTask extends TimerTask {
-
     private String textFromWeb;
-
-    public String getTextFromWeb() {
-        return textFromWeb;
-    }
-
-    public void setTextFromWeb(String textFromWeb) {
-        this.textFromWeb = textFromWeb;
-    }
 
     @Override
     public void run() {
@@ -35,5 +27,13 @@ public class FrequentTask extends TimerTask {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getTextFromWeb() {
+        return textFromWeb;
+    }
+
+    public void setTextFromWeb(String textFromWeb) {
+        this.textFromWeb = textFromWeb;
     }
 }

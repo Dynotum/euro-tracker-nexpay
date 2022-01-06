@@ -6,24 +6,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SeleniumTask {
-    private String text;
+    protected static ThreadLocal<FirefoxDriver> firefoxDriver = new ThreadLocal<>();
     private static final Logger LOGGER = LoggerFactory.getLogger(SeleniumTask.class);
+    private String text;
 
     public SeleniumTask() {
         executeWebTask();
     }
 
-    public String getText() {
-        return text;
-    }
-
-    private void setText(String text) {
-        this.text = text;
-    }
-
     private synchronized void executeWebTask() {
-        final WebDriver driver = new FirefoxDriver();
         try {
+            setUp();
+            final WebDriver driver = firefoxDriver.get();
             // Step # | name | target | value
             // 1 | open | / |
             driver.get("https://www.nexpay.com.au/");
@@ -57,7 +51,27 @@ public class SeleniumTask {
         } catch (Exception w) {
             System.out.println(w.getMessage());
         } finally {
-            driver.close();
+            tearDown();
         }
+    }
+
+    public WebDriver getDriver() {
+        return firefoxDriver.get();
+    }
+
+    public void tearDown() {
+        getDriver().quit();
+    }
+
+    public void setUp() {
+        firefoxDriver.set(new FirefoxDriver());
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    private void setText(String text) {
+        this.text = text;
     }
 }
