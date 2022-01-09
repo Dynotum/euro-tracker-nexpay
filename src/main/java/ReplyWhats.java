@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Spark;
 
+import java.util.Date;
 import java.util.Random;
 import java.util.TimerTask;
 
@@ -28,7 +29,7 @@ public class ReplyWhats extends TimerTask {
         LOGGER.info("Text from web as a replied: " + text);
 
         Spark.post("/sms", (req, res) -> {
-            LOGGER.info("Post call...");
+            LOGGER.info(Main.DATE_FORMAT.format(new Date()) + " Post call...");
             res.type("application/xml");
             Body body = new Body
                     .Builder(text)

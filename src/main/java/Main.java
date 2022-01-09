@@ -1,19 +1,25 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+    public static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     public static void main(String[] args) {
         run();
     }
 
     private static void run() {
-        LOGGER.info("Welcome!");
+        TimeZone.setDefault(TimeZone.getTimeZone("America/Mexico_City"));
+        LOGGER.info(DATE_FORMAT.format(new Date()) + " WELCOME");
 
         final ScheduledExecutorService ser = Executors.newScheduledThreadPool(2);
 
