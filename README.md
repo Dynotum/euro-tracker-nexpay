@@ -2,7 +2,10 @@
 
 ## Description
 
-This project was built with an external API called Twilio for sending Whatsapp messages. Programming language is Java Core, Spark framework for REST calls, and Selenium.
+This project was built with an external API called Twilio for sending Whatsapp messages. Programming language is Java Core, Spark framework for REST calls, and Selenium. 
+
+Currently, it's running on a Virtual Machine with Centos 7.9 and Xfce as a GUI on Azure Cloud
+
 
 This project opens up a Firefox browser and gets the current value of one euro per mexican peso for nexpay.com.au platform.
 
